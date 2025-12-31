@@ -13,16 +13,21 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-2xl: 42rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --text-6xl: 3.75rem;
     --text-6xl--line-height: 1;
     --font-weight-medium: 500;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -301,6 +306,9 @@
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
   .mt-20 {
     margin-top: calc(var(--spacing) * 20);
   }
@@ -328,9 +336,16 @@
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
   .size-10 {
     width: calc(var(--spacing) * 10);
     height: calc(var(--spacing) * 10);
+  }
+  .size-22\.5 {
+    width: calc(var(--spacing) * 22.5);
+    height: calc(var(--spacing) * 22.5);
   }
   .h-20 {
     height: calc(var(--spacing) * 20);
@@ -344,8 +359,14 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
+  .w-125 {
+    width: calc(var(--spacing) * 125);
+  }
   .w-263\.5 {
     width: calc(var(--spacing) * 263.5);
+  }
+  .w-\[50\%\] {
+    width: 50%;
   }
   .w-full {
     width: 100%;
@@ -363,6 +384,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -377,6 +401,21 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .justify-items-center {
+    justify-items: center;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .gap-30 {
+    gap: calc(var(--spacing) * 30);
+  }
+  .gap-35 {
+    gap: calc(var(--spacing) * 35);
   }
   .gap-x-80 {
     column-gap: calc(var(--spacing) * 80);
@@ -423,6 +462,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .px-20 {
+    padding-inline: calc(var(--spacing) * 20);
+  }
   .px-30 {
     padding-inline: calc(var(--spacing) * 30);
   }
@@ -447,6 +489,27 @@
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
+  .pr-10 {
+    padding-right: calc(var(--spacing) * 10);
+  }
+  .pr-50 {
+    padding-right: calc(var(--spacing) * 50);
+  }
+  .pb-5 {
+    padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pl-50 {
+    padding-left: calc(var(--spacing) * 50);
+  }
+  .pl-75 {
+    padding-left: calc(var(--spacing) * 75);
+  }
+  .pl-100 {
+    padding-left: calc(var(--spacing) * 100);
+  }
+  .pl-120 {
+    padding-left: calc(var(--spacing) * 120);
+  }
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
@@ -469,8 +532,21 @@
   .text-\[7rem\] {
     font-size: 7rem;
   }
+  .text-\[16px\] {
+    font-size: 16px;
+  }
   .text-\[18px\] {
     font-size: 18px;
+  }
+  .text-\[50px\] {
+    font-size: 50px;
+  }
+  .text-\[90px\] {
+    font-size: 90px;
+  }
+  .leading-11 {
+    --tw-leading: calc(var(--spacing) * 11);
+    line-height: calc(var(--spacing) * 11);
   }
   .leading-none {
     --tw-leading: 1;
@@ -484,8 +560,15 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
   .text-\[rgb\(231\,231\,231\)\] {
     color: rgb(231,231,231);
+  }
+  .text-black {
+    color: var(--color-black);
   }
   .text-blue-600 {
     color: var(--color-blue-600);
@@ -533,31 +616,10 @@
       }
     }
   }
-  .group-hover\:scale-\[1\.05\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        scale: 1.05;
-      }
-    }
-  }
   .group-hover\:scale-\[1\.08\] {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         scale: 1.08;
-      }
-    }
-  }
-  .group-hover\:scale-\[2\.4\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        scale: 2.4;
-      }
-    }
-  }
-  .group-hover\:scale-\[2\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        scale: 2;
       }
     }
   }
